@@ -1,9 +1,10 @@
 #pragma once
 
-template <class Type>
 class HashTable
 {
 private:
+    int *array;
+
 public:
     HashTable();
     HashTable(int size);
@@ -22,12 +23,10 @@ public:
     void clear();
 };
 
-template <class Type>
-HashTable<Type>::HashTable()
+HashTable::HashTable()
 {
 }
 
-template <class Type>
-HashTable<Type>::~HashTable()
+HashTable::~HashTable()
 {
 }
