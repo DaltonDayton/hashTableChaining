@@ -1,9 +1,10 @@
 #include <iostream>
 
-#include "Hash_Table.h"
+#include "HashTable.h"
 
 int main(int argc, char const *argv[])
 {
+    std::cout << "Hello World!" << std::endl;
 
     return 0;
 }

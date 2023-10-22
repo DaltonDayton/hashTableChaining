@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Hash_Table.h"
+#include "HashTable.h"
 
 TEST(HashTableConstructor, constructor)
 {
