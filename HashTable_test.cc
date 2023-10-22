@@ -3,5 +3,5 @@
 
 TEST(HashTableConstructor, constructor)
 {
-    EXPECT_EQ(1, 1);
+    HashTable<int> htable;
 }

@@ -4,7 +4,9 @@
 
 int main(int argc, char const *argv[])
 {
-    std::cout << "Hello World!" << std::endl;
+    HashTable<int> htable;
+    htable.add(2);
+    htable.add(12);
 
     return 0;
 }

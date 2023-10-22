@@ -1,32 +1,51 @@
 #pragma once
 
+template <class Type>
+struct Node
+{
+    Type data;
+    Node<Type> *next{nullptr};
+};
+
+template <class Type>
 class HashTable
 {
 private:
-    int *array;
+    Node<Type> **array;
+    int capacity;
+    int size;
 
 public:
     HashTable();
-    HashTable(int size);
-    HashTable(int, double);
-    HashTable(const HashTable &other);
-    HashTable &operator=(const HashTable &other);
     ~HashTable();
-    int size() const;
-    int capacity() const;
-    double getLoadFactorThreshold() const;
-    bool empty() const;
-    void insert(const int);
-    void remove(int);
-    bool contains(int) const;
-    int indexOf(int) const;
-    void clear();
+    void add(Type data);
 };
 
-HashTable::HashTable()
+template <class Type>
+HashTable<Type>::HashTable() : capacity{10}, size{0}
+{
+    array = new Node<Type> *[capacity];
+}
+
+template <class Type>
+HashTable<Type>::~HashTable()
 {
 }
 
-HashTable::~HashTable()
+template <class Type>
+void HashTable<Type>::add(Type data)
 {
+    Node<Type> *newNode = new Node<Type>;
+    newNode->data = data;
+
+    int index = data % capacity;
+
+    if (array[index] == nullptr)
+    {
+        array[index] = newNode;
+    }
+    else
+    {
+        array[index]->next = newNode;
+    }
 }
