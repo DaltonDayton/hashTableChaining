@@ -19,6 +19,11 @@ public:
     HashTable();
     ~HashTable();
     void add(Type data);
+    void remove(Type data);
+    bool contains(Type data) const;
+    bool empty() const;
+    int getSize() const;
+    int getCapacity() const;
 };
 
 template <class Type>
@@ -48,4 +53,35 @@ void HashTable<Type>::add(Type data)
     {
         array[index]->next = newNode;
     }
+
+    size++;
+}
+
+template <class Type>
+void HashTable<Type>::remove(Type data)
+{
+}
+
+template <class Type>
+bool HashTable<Type>::contains(Type data) const
+{
+    return false;
+}
+
+template <class Type>
+bool HashTable<Type>::empty() const
+{
+    return false;
+}
+
+template <class Type>
+int HashTable<Type>::getSize() const
+{
+    return size;
+}
+
+template <class Type>
+int HashTable<Type>::getCapacity() const
+{
+    return capacity;
 }
