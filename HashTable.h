@@ -30,6 +30,11 @@ template <class Type>
 HashTable<Type>::HashTable() : capacity{10}, size{0}
 {
     array = new Node<Type> *[capacity];
+
+    for (int i = 0; i < capacity; i++)
+    {
+        array[i] = nullptr;
+    }
 }
 
 template <class Type>
@@ -51,7 +56,13 @@ void HashTable<Type>::add(Type data)
     }
     else
     {
-        array[index]->next = newNode;
+        Node<Type> *temp = array[index];
+
+        while (temp->next != nullptr)
+        {
+            temp = temp->next;
+        }
+        temp->next = newNode;
     }
 
     size++;
@@ -65,6 +76,30 @@ void HashTable<Type>::remove(Type data)
 template <class Type>
 bool HashTable<Type>::contains(Type data) const
 {
+    int index = data % capacity;
+
+    if (array[index] == nullptr)
+    {
+        return false;
+    }
+    else if (array[index]->data == data)
+    {
+        return true;
+    }
+    else
+    {
+        Node<Type> *temp = array[index];
+
+        while (temp)
+        {
+            if (temp->data == data)
+            {
+                return true;
+            }
+            temp = temp->next;
+        }
+    }
+
     return false;
 }
 
